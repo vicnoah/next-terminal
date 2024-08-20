@@ -44,7 +44,7 @@ jobs:
           push: true
           tags: |
             vicnoah/next-terminal:latest
-            vicnoah/next-terminal:${{ steps.get_version.outputs.VERSION }}
+            vicnoah/next-terminal:v1.4.1
           cache-from: type=registry,ref=vicnoah/next-terminal:cache
           cache-to: type=registry,ref=vicnoah/next-terminal:cache,mode=max
 
