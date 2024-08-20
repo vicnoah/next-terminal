@@ -43,10 +43,10 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_NAMESPACE }}/next-terminal:latest
-            ${{ secrets.DOCKERHUB_NAMESPACE }}/next-terminal:${{ steps.get_version.outputs.VERSION }}
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_NAMESPACE }}/next-terminal:cache
-          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_NAMESPACE }}/next-terminal:cache,mode=max
+            vicnoah/next-terminal:latest
+            vicnoah/next-terminal:${{ steps.get_version.outputs.VERSION }}
+          cache-from: type=registry,ref=vicnoah/next-terminal:cache
+          cache-to: type=registry,ref=vicnoah/next-terminal:cache,mode=max
 
   DOCKERHUB_Hub_Description:
     needs: [ DOCKERHUB_next-terminal_Build ]
@@ -60,4 +60,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ secrets.DOCKERHUB_NAMESPACE }}/next-terminal
+          repository: vicnoah/next-terminal
